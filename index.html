@@ -1,56 +1,123 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Currículum David Cortés</title>
-  <style>
-    /* Estilo muy básico para los botones */
-    .lang-btn {
-      margin: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
+<style>
+  :root {
+    --bg-color: #ffffff;       /* Fondo claro */
+    --text-color: #003366;     /* Texto principal claro */
+    --accent-color: #0073e6;   /* Acentos claro */
+  }
 
-  <h1>Currículum David Cortés</h1>
-  <p>Operations & Logistics Leader</p>
+  [data-theme="dark"] {
+    --bg-color: #000000;       /* Fondo oscuro */
+    --text-color: #FFD700;     /* Texto dorado */
+    --accent-color: #FFC107;   /* Acentos dorados */
+  }
 
-  <!-- Botones de idioma -->
-  <div>
-    <button class="lang-btn" onclick="showLang('es')">ES</button>
-    <button class="lang-btn" onclick="showLang('de')">DE</button>
-    <button class="lang-btn" onclick="showLang('en')">EN</button>
-  </div>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
 
-  <!-- Contenido por idioma -->
-  <div id="es">
-    <h2>Sobre mí</h2>
-    <p>Esta es la versión en Español.</p>
-    <p>Vídeos disponibles solo en ES y DE.</p>
-  </div>
+  /* Pantalla de selección de idioma */
+  #language-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+  }
 
-  <div id="de" style="display:none">
-    <h2>Über mich</h2>
-    <p>Dies ist die deutsche Version.</p>
-    <p>Videos nur in ES und DE.</p>
-  </div>
+  #language-selection h1 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    font-weight: bold;
+  }
 
-  <div id="en" style="display:none">
-    <h2>About me</h2>
-    <p>This is the English version.</p>
-    <p>No videos yet.</p>
-  </div>
+  .flag-btn {
+    margin: 15px;
+    border: none;
+    cursor: pointer;
+    background: none;
+  }
 
-  <script>
-    function showLang(lang) {
-      document.getElementById('es').style.display = 'none';
-      document.getElementById('de').style.display = 'none';
-      document.getElementById('en').style.display = 'none';
-      document.getElementById(lang).style.display = 'block';
-    }
-  </script>
+  .flag-btn img {
+    width: 100px;
+    height: 60px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
 
-</body>
-</html>
+  .flag-btn img:hover {
+    transform: scale(1.15);
+  }
+
+  /* Contenido principal */
+  #main-content {
+    display: none;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+
+  header {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 20px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+  }
+
+  header h1 { margin: 0; font-size: 2em; }
+  header p { margin: 5px 0 0 0; font-size: 1.1em; }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 15px;
+    background-color: var(--accent-color);
+    border-radius: 6px;
+  }
+
+  nav button {
+    padding: 8px 14px;
+    cursor: pointer;
+    border: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-weight: bold;
+    border-radius: 5px;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+
+  nav button:hover {
+    transform: scale(1.05);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+  }
+
+  section { margin-bottom: 30px; }
+  h2 {
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+  }
+
+  .toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+</style>
