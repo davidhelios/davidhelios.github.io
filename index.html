@@ -3,16 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <title>Currículum David Cortés</title>
+  <style>
+    /* Estilo muy básico para los botones */
+    .lang-btn {
+      margin: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
   <h1>Currículum David Cortés</h1>
   <p>Operations & Logistics Leader</p>
 
-  <p>
-    Esta web está en construcción.<br>
-    Pronto estará disponible en Español, Alemán e Inglés.
-  </p>
+  <!-- Botones de idioma -->
+  <div>
+    <button class="lang-btn" onclick="showLang('es')">ES</button>
+    <button class="lang-btn" onclick="showLang('de')">DE</button>
+    <button class="lang-btn" onclick="showLang('en')">EN</button>
+  </div>
+
+  <!-- Contenido por idioma -->
+  <div id="es">
+    <h2>Sobre mí</h2>
+    <p>Esta es la versión en Español.</p>
+    <p>Vídeos disponibles solo en ES y DE.</p>
+  </div>
+
+  <div id="de" style="display:none">
+    <h2>Über mich</h2>
+    <p>Dies ist die deutsche Version.</p>
+    <p>Videos nur in ES und DE.</p>
+  </div>
+
+  <div id="en" style="display:none">
+    <h2>About me</h2>
+    <p>This is the English version.</p>
+    <p>No videos yet.</p>
+  </div>
+
+  <script>
+    function showLang(lang) {
+      document.getElementById('es').style.display = 'none';
+      document.getElementById('de').style.display = 'none';
+      document.getElementById('en').style.display = 'none';
+      document.getElementById(lang).style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
